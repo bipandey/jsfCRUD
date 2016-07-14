@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<title>Jsf crud</title>
+</head>
+
+<h:body>
+	<div align="center">
+		<h2>Register Student</h2>
+		<h:form>
+			<table>
+				<tr>
+					<td><h:outputText value="Name:" /></td>
+					<td><h:inputText id="name" label="Name:"
+							value="#{student.name}" required="true" /></td>
+					<h:message for="name" style="color:red" />
+
+				</tr>
+				<ui:remove>
+				<!-- <tr>
+					<td><h:outputText value="DOB:" ><f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+					</h:outputText></td>
+					<td><h:inputText label="DOB:" value="#{student.dob}"
+							required="true" /></td>
+					
+
+				</tr> -->
+				</ui:remove>
+				<tr>
+					<td><h:outputText value="Sex:" /></td>
+					<td><h:selectOneRadio value="#{student.sex}" id="sex"
+							label="Sex:" required="true">
+							<f:selectItem itemValue="M" itemLabel="Male" />
+							<f:selectItem itemValue="F" itemLabel="Female" />
+						</h:selectOneRadio></td>
+					<h:message for="sex" style="color:red" />
+				</tr>
+				<tr>
+					<td><h:outputText value="Grade:"/></td>
+					<td><h:inputText id="grade" label="Grade"
+							value="#{student.grade}" required="true" /></td>
+					<h:message for="grade" style="color:red" />
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Faculty:" /></td>
+					<td><h:selectOneMenu value="#{student.faculty.f_id}">
+							<f:selectItem itemLabel="-select-" />
+							<f:selectItems
+								value="#{studentController.facultyDetail.entrySet()}" var="val"
+								itemValue="#{val.key}" itemLabel="#{val.value}" />
+
+						</h:selectOneMenu></td>
+				</tr>
+			</table>
+			<h:commandButton value="Register"
+				action="#{studentController.addStudent}" /></h:form>
+				
+	</div>
+</h:body>
+</html>

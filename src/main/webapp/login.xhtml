@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<title>Jsf crud</title>
+</head>
+<h:body>
+	<h:form>
+		<div align="center">
+			<h2>Login Details</h2>
+			<h:panelGrid column="2" border="0">
+				<h:outputText value="UserId:" />
+				<h:inputText id="userId" label="userId" value="#{login.userId}"
+					required="true" />
+				<h:message for="userId" style="color:red"></h:message>
+
+				<h:outputLabel value="Password"></h:outputLabel>
+				<h:inputText id="Password" value="#{login.userPassword}"
+					label="password:" required="true" />
+				<h:message for="Password" style="color:red" />
+			</h:panelGrid>
+
+			<ui:remove>
+				<!-- <h:outputText value="UserRole" />
+					<h:selectOneMenu value="#{login.userRole}">
+							<f:selectItem itemLabel="-select-" />
+							<f:selectItems
+								value="#{loginController.userRole}" var="val"
+								itemValue="#{val.userRole}" itemLabel="#{val.userRole}" />
+
+						</h:selectOneMenu> -->
+			</ui:remove>
+
+			<h:commandButton value="login" action="#{loginController.validate}" />
+		</div>
+	</h:form>
+
+</h:body>
+</html>
